@@ -11,6 +11,8 @@ h2{font-size:15px;margin:26px 0 10px;color:#cfd6df;border-left:3px solid #4f8cff
 .an{font-size:13.5px;color:#c3cad4;white-space:pre-line}
 ul.arch{columns:2;font-size:13px;margin:0;padding-left:18px}ul.arch a{color:#4f8cff;text-decoration:none}
 .foot{color:#5b6573;font-size:12px;margin-top:20px;border-top:1px solid #232b36;padding-top:12px}
+.dt{width:100%;border-collapse:collapse;font-size:12.5px}.dt th,.dt td{padding:6px 10px;border-bottom:1px solid #232b36;text-align:right;font-variant-numeric:tabular-nums}.dt th:first-child,.dt td:first-child{text-align:left}.dt th{color:#8a93a0;font-weight:600;position:sticky;top:0;background:#171d26}
+details{border:1px solid #232b36;border-radius:8px;margin:6px 0;padding:4px 12px;background:#10151c}summary{cursor:pointer;font-size:13px;color:#cfd6df}details pre{white-space:pre-wrap;font-size:12px;color:#c3cad4;overflow-x:auto;margin:8px 0 4px}
 </style></head><body><div class=wrap>
 <h1>Helio 增长看板</h1>
 <div class=sub>真实口径 · 自动每日更新 · 数据源 PostHog（项目 Default）· 窗口 2026-05-29 ~ 今天</div>
@@ -21,7 +23,7 @@ ul.arch{columns:2;font-size:13px;margin:0;padding-left:18px}ul.arch a{color:#4f8
 <div class=k><div class=n>108</div><div class=l>核心活跃</div><div class="d">发过 AI 消息</div></div>
 <div class=k><div class=n>21</div><div class=l>新增注册</div><div class="d">signup_started</div></div>
 <div class=k><div class=n>0</div><div class=l>付费</div><div class="d">billing_plan_purchased</div></div>
-<div class=k><div class=n>127.3</div><div class=l>真实日活·7日均</div><div class="d down">-29% vs 前7日</div></div>
+<div class=k><div class=n>128.7</div><div class=l>真实日活·7日均</div><div class="d down">-28% vs 前7日</div></div>
 <div class=k><div class=n>655</div><div class=l>访客 UV</div><div class="d">含匿名·营销口径</div></div>
 </div>
 
@@ -37,15 +39,135 @@ ul.arch{columns:2;font-size:13px;margin:0;padding-left:18px}ul.arch a{color:#4f8
 
 <h2>趋势分析</h2>
 <div class="panel an">真实日活峰值 280（2026-05-29），低谷 76（2026-06-07）；最近完整一天 6/15 = 170。
-近 7 日均值 127.3，对比前 7 日 179.1，环比 -29%。
+近 7 日均值 128.7，对比前 7 日 179.1，环比 -28%。
 口径校正后（真实日活=有 email 且当天有动作的用户，非全 UV），整体处于「launch 尾部回落 + 弱新增」阶段：5 月中那波涌入大多未沉淀，留存是核心缺口；付费层零星但还在。重点看每周一的新增能否站上 20。</div>
 
-<h2>日报归档</h2>
+<h2>每日数据明细（全部储存于此）</h2>
+<div class=panel style="max-height:420px;overflow:auto"><table class=dt><tr><th>日期(UTC)</th><th>真实日活</th><th>核心活跃</th><th>新增</th><th>付费</th><th>访客UV</th><th>7日均</th></tr><tr><td>2026-06-16</td><td>88</td><td>62</td><td>4</td><td>0</td><td>310</td><td>128.7</td></tr><tr><td>2026-06-15</td><td>170</td><td>108</td><td>21</td><td>0</td><td>655</td><td>149.1</td></tr><tr><td>2026-06-14</td><td>90</td><td>38</td><td>19</td><td>0</td><td>392</td><td>145.3</td></tr><tr><td>2026-06-13</td><td>92</td><td>59</td><td>20</td><td>1</td><td>435</td><td>143.3</td></tr><tr><td>2026-06-12</td><td>146</td><td>92</td><td>17</td><td>1</td><td>576</td><td>144.6</td></tr><tr><td>2026-06-11</td><td>148</td><td>94</td><td>20</td><td>0</td><td>604</td><td>151.0</td></tr><tr><td>2026-06-10</td><td>167</td><td>106</td><td>12</td><td>0</td><td>558</td><td>168.6</td></tr><tr><td>2026-06-09</td><td>231</td><td>179</td><td>54</td><td>2</td><td>1066</td><td>179.1</td></tr><tr><td>2026-06-08</td><td>143</td><td>80</td><td>12</td><td>1</td><td>571</td><td>176.3</td></tr><tr><td>2026-06-07</td><td>76</td><td>40</td><td>7</td><td>1</td><td>292</td><td>188.7</td></tr><tr><td>2026-06-06</td><td>101</td><td>52</td><td>15</td><td>0</td><td>406</td><td>193.0</td></tr><tr><td>2026-06-05</td><td>191</td><td>103</td><td>32</td><td>0</td><td>816</td><td>196.4</td></tr><tr><td>2026-06-04</td><td>271</td><td>179</td><td>61</td><td>2</td><td>1318</td><td>209.1</td></tr><tr><td>2026-06-03</td><td>241</td><td>159</td><td>41</td><td>1</td><td>1022</td><td>198.8</td></tr><tr><td>2026-06-02</td><td>211</td><td>141</td><td>30</td><td>7</td><td>749</td><td>190.4</td></tr><tr><td>2026-06-01</td><td>230</td><td>146</td><td>32</td><td>1</td><td>896</td><td>185.2</td></tr><tr><td>2026-05-31</td><td>106</td><td>67</td><td>9</td><td>1</td><td>362</td><td>170.3</td></tr><tr><td>2026-05-30</td><td>125</td><td>84</td><td>20</td><td>0</td><td>450</td><td>202.5</td></tr><tr><td>2026-05-29</td><td>280</td><td>156</td><td>32</td><td>4</td><td>984</td><td>280.0</td></tr></table></div>
+
+<h2>每日报告 · 点开查看</h2>
+<div class=panel><details><summary>_history.md</summary><pre># Helio 指标历史（真实口径）
+
+口径校正（2026-06-15）：此前日报里的「DAU」其实是访客UV（含匿名流量，约 4 倍虚高）。下表是**校正后的真实口径**，按 UTC 日。
+
+- 真实日活 = 当天有动作的已识别用户（有 email）
+- 核心活跃 = 发过 AI 消息的用户
+- 新增注册 = signup_started · 付费 = billing_plan_purchased · 访客UV = 全去重(含匿名)
+
+| 日期(UTC) | 真实日活 | 核心活跃 | 新增注册 | 付费 | 访客UV |
+|---|---|---|---|---|---|
+| 2026-06-01 | 230 | 146 | 32 | 1 | 896 |
+| 2026-06-02 | 211 | 141 | 30 | 7 | 749 |
+| 2026-06-03 | 241 | 159 | 41 | 1 | 1022 |
+| 2026-06-04 | 271 | 179 | 61 | 2 | 1318 |
+| 2026-06-05 | 191 | 103 | 32 | 0 | 816 |
+| 2026-06-06 | 101 | 52 | 15 | 0 | 406 |
+| 2026-06-07 | 76 | 40 | 7 | 1 | 292 |
+| 2026-06-08 | 143 | 80 | 12 | 1 | 571 |
+| 2026-06-09 | 231 | 179 | 54 | 2 | 1066 |
+| 2026-06-10 | 167 | 106 | 12 | 0 | 558 |
+| 2026-06-11 | 148 | 94 | 20 | 0 | 604 |
+| 2026-06-12 | 146 | 92 | 17 | 1 | 576 |
+| 2026-06-13 | 92 | 59 | 20 | 1 | 435 |
+| 2026-06-14 | 90 | 38 | 19 | 0 | 392 |
+| 2026-06-15 | 170 | 108 | 21 | 0 | 649 |
+
+_注：UTC 日，完整结算值（6/15 已从早间进行中快照更新为完整）。数据源 Yori PostHog（只读）。每天追加。_
+</pre></details><details><summary>2026-06-15.md</summary><pre># Helio 日报 · 2026-06-15 (UTC 完整)
+
+口径校正后版本（版本 C · 指标表）。真实日活 = 有 email 且当天有动作的用户；访客 UV 含匿名流量，为营销口径，不等于日活。
+
+🟢 真实日活 170 · 核心活跃 108 · 新增注册 21 · 付费 0
+
+| 维度 | 今日 6/15 | 昨日 6/14 | 上周一 6/8 | 口径 |
+|---|---|---|---|---|
+| 真实日活 | **170** | 90 | 143 | 有 email 且当天有动作 |
+| 核心活跃 | **108** | 38 | 80 | 发过 AI 消息（当日 4,978 条）|
+| 新增注册 | **21** | 19 | 12 | signup_started |
+| 付费 | 0 | 0 | 1 | billing_plan_purchased |
+| 访客 UV | 649 | 392 | 571 | 全去重 distinct_id（含匿名，营销口径）|
+
+## 读法
+
+周一测试通过：连续三个 weekday 新增注册 &lt;20（6/10 12 / 6/11 20 / 6/12 17）的获客弱势，在 6/15 周一被打破（21）。真实日活 170 vs 上周一 6/8（143）= **+19% WoW**，核心活跃 108 是两周来最高。真实日活、核心活跃、新增三项同时 vs 上周一转正，是这两周第一次 weekday like-for-like 全面回正——印证周末两天的判断：上周低谷是 launch 尾巴退潮，不是产品掉用户。
+
+唯一弱项：付费 0（上周一有 1 单）。但 6/12+6/13 出过单，周一 0 更可能是节奏波动，等本周后面 weekday 再看。
+
+真实日活近况：峰值 271（6/4）→ 谷底 76（6/7）→ 本周 6/13 92 / 6/14 90 / **6/15 170**。7 日均 149 vs 上周 176 仍 -15%，但周内尾段（13→14→15）往上走。
+
+注：本文件为 6/15 UTC 完整结算值，覆盖早间约 03:30 UTC 的进行中快照（当时真实日活 46）。数据源：Yori 的 PostHog（只读 API Key，US 区 / Default project）。
+</pre></details><details><summary>2026-06-15-weekly-usage.md</summary><pre># Helio 过去一周用户使用情况分析（6/8–6/15 UTC）
+
+数据源：helio-prod 生产库（只读）。活跃发言口径 = 当周发过文字消息、带客户端标识的真人用户。
+
+## 1. 规模
+- 本周新 onboarding 用户：**275**
+- 本周新建 workspace：**2361** · 新建频道（非通知类）：**2069**
+- 当周真人发言用户（desktop 口径，下限）：**262** 人
+- 真人文字消息：**3188** 条，涉及 **613** 个频道
+- ⚠️ 关键缺口：新建 workspace 2361 vs 真正发言 262 —— 绝大多数新用户走完 onboarding 建了 workspace 就不再说话，**激活/留存断层明显**（和真实日活仅 ~90 一致）。
+
+## 2. 使用强度
+- 人均消息中位数仅 **3** 条；但 top10 用户贡献 **1295 条（41%）**。
+- 结论：**极度头部集中**——一小撮重度用户撑起大部分使用量，长尾基本试一下就走。
+
+## 3. 用户进来想干嘛（onboarding 选的场景 / 角色，275 人）
+场景：ship 建/发布 129 · create 创作 54 · explore 探索 39 · data 数据 34 · design 设计 17 · reach 增长 15
+角色 Top：tech-lead 166 · engineer 150 · qa-tester 119 · code-reviewer 118 · writer 94 · editor 53 · researcher 45 · analyst 34 · pm 31 · data-engineer 30 · designer 22 · brand-strategist 19 · outreach-writer 18 · marketer 18
+→ **意图高度偏软件工程**（建产品/写代码/测试/审查），其次内容创作，再到研究、数据、设计、营销。
+
+## 4. 用户实际在做什么（262 活跃人触及的场景，可多选）
+- 编程/开发：**83 人 (32%)**
+- 内容创作/文案：**77 人 (29%)**
+- 研究/调研：**75 人 (29%)**
+- 设计：**64 人 (24%)**
+- 数据/分析：**62 人 (24%)**
+- 营销/KOL/增长：**58 人 (22%)**
+- 规划/管理：42 人 (16%)
+→ 使用面非常**横向**，编程领跑，但内容/研究/设计/数据/营销几乎平分秋色。Helio 被当成全能助手用，而非单一场景工具。
+
+## 5. 真实案例场景（节选）
+- 编程：「我要做个 MVP，你们别帮我搞 API key」「先把 skill 的逻辑设计好」「改设计文档然后提交 PR 给我」
+- 内容：「写一个 AI 产品经理课程标题，吸引想转行的 PM」「写一篇业内 auto research 分析」
+- 研究：「我想做出海 AI 产品赚美金，锚定儿童方向，帮我调研儿童品类 AI SaaS」
+- 数据：「把这几个数据区分开做几版汇报」（注：你自己也在样本里）
+- 营销：「做一个个人品牌 IP 自媒体工作流」「帮我实现 X 500 万曝光」
+- 设计：「怎么接 figma」
+- 画像信号：不少「做日入 1 美金方案 / 出海赚美金 / 涨粉曝光」——**独立开发者 / solopreneur** 人群占比可观。
+
+## 6. 给你的 3 个判断
+1. **获客不缺、激活缺**：每周 2000+ 新 workspace，但只有 ~260 人真正说话、~90 真实日活。漏斗第一跳（onboarding→首次有效使用）是最大流失点。
+2. **核心场景是「写代码/建东西」**：onboarding 和真实使用都指向工程/创作，营销类是少数。产品叙事和模板可优先服务 indie hacker / 小团队建产品。
+3. **重度用户极少但极活跃**：top10 占 41% 消息。值得单独看这十几个人是谁、在 build 什么——既是案例素材，也是留存抓手。
+
+口径与方法：真人=带 client_msg_id 的 channel_text；外部接口(Lark/微信)若不带该标识会漏，故 262 为下限。场景为中文关键词归类，近似、可多归。UTC 周。
+</pre></details><details><summary>2026-06-15-utm.md</summary><pre># UTM / 渠道日报 · 2026-06-15
+
+结论：有效获客主要靠 X（激活率最高）；直接流量量大但激活偏低；LinkedIn 有量无转化；Discord 仍 0（需投放链接带 utm_source 才可见）。规则：当天有 ≥1 访问的渠道全列，0 激活也写。
+
+## 6/15（当日进行中）
+| 渠道 | 访问 | 激活 | 激活率 |
+|---|---|---|---|
+| 直接/未标记 | 50 | 5 | 10% |
+| X | 8 | 1 | 12% |
+| LinkedIn | 1 | 0 | 0% |
+
+## 6/14（完整，对照）
+| 渠道 | 访问 | 激活 | 激活率 |
+|---|---|---|---|
+| 直接/未标记 | 97 | 9 | 9% |
+| X | 76 | 10 | 13% |
+| 微信 | 1 | 0 | 0% |
+
+口径：访问 = 该 utm_source 当天 $pageview 去重访客；激活（宽口径）= 当天落地访客同日触发 signup_started / assistant_created / ai_message_sent 任一。近 7 天还出现过 YouTube、ChatGPT。Discord 14 天 0 痕迹。数据源：Yori PostHog（只读）。
+</pre></details></div>
+
+<h2>日报归档（GitHub 原文）</h2>
 <div class=panel><ul class=arch><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/_history.md" target=_blank>_history.md</a></li><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/2026-06-15.md" target=_blank>2026-06-15.md</a></li><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/2026-06-15-weekly-usage.md" target=_blank>2026-06-15-weekly-usage.md</a></li><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/2026-06-15-utm.md" target=_blank>2026-06-15-utm.md</a></li></ul></div>
 
 <div class=foot>口径：真实日活=uniq(person_id) email 非空且当天有动作；核心活跃=ai_message_sent uniq；新增=signup_started uniq；付费=billing_plan_purchased 次数；访客UV=全 distinct_id（含匿名，营销口径）。本页由 Gatlin 自动生成，随每日日报刷新。图表用 Chart.js（需联网）。</div>
 </div>
-<script>const D={"labels": ["05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16"], "rdau": [280, 125, 106, 230, 211, 241, 271, 191, 101, 76, 143, 231, 167, 148, 146, 92, 90, 170, 78], "ma": [280.0, 202.5, 170.3, 185.2, 190.4, 198.8, 209.1, 196.4, 193.0, 188.7, 176.3, 179.1, 168.6, 151.0, 144.6, 143.3, 145.3, 149.1, 127.3], "core": [156, 84, 67, 146, 141, 159, 179, 103, 52, 40, 80, 179, 106, 94, 92, 59, 38, 108, 57], "sig": [32, 20, 9, 32, 30, 41, 61, 32, 15, 7, 12, 54, 12, 20, 17, 20, 19, 21, 3], "paid": [4, 0, 1, 1, 7, 1, 2, 0, 0, 1, 1, 2, 0, 0, 1, 1, 0, 0, 0], "uv": [984, 450, 362, 896, 749, 1022, 1318, 816, 406, 292, 571, 1066, 558, 604, 576, 435, 392, 655, 268], "chL": ["自然社交", "直接访问", "自然搜索", "外部引荐", "自然视频"], "chV": [103, 110, 43, 4, 6]};Chart.defaults.color='#8a93a0';Chart.defaults.borderColor='#232b36';
+<script>const D={"labels": ["05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16"], "rdau": [280, 125, 106, 230, 211, 241, 271, 191, 101, 76, 143, 231, 167, 148, 146, 92, 90, 170, 88], "ma": [280.0, 202.5, 170.3, 185.2, 190.4, 198.8, 209.1, 196.4, 193.0, 188.7, 176.3, 179.1, 168.6, 151.0, 144.6, 143.3, 145.3, 149.1, 128.7], "core": [156, 84, 67, 146, 141, 159, 179, 103, 52, 40, 80, 179, 106, 94, 92, 59, 38, 108, 62], "sig": [32, 20, 9, 32, 30, 41, 61, 32, 15, 7, 12, 54, 12, 20, 17, 20, 19, 21, 4], "paid": [4, 0, 1, 1, 7, 1, 2, 0, 0, 1, 1, 2, 0, 0, 1, 1, 0, 0, 0], "uv": [984, 450, 362, 896, 749, 1022, 1318, 816, 406, 292, 571, 1066, 558, 604, 576, 435, 392, 655, 310], "chL": ["自然社交", "直接访问", "自然搜索", "外部引荐", "自然视频"], "chV": [103, 110, 43, 4, 6]};Chart.defaults.color='#8a93a0';Chart.defaults.borderColor='#232b36';
 const f=(id,c)=>{const e=document.getElementById(id);if(e&&window.Chart)new Chart(e,c);};
 const line=(label,data,color,extra={})=>({type:'line',data:{labels:D.labels,datasets:[{label,data,borderColor:color,backgroundColor:color,tension:.3,fill:false,pointRadius:2,...extra}]},options:{plugins:{legend:{display:false}}}});
 f('cDau',{type:'line',data:{labels:D.labels,datasets:[{label:'真实日活',data:D.rdau,borderColor:'#4f8cff',backgroundColor:'#4f8cff22',tension:.3,fill:true,pointRadius:2},{label:'7日均',data:D.ma,borderColor:'#ffb454',backgroundColor:'#ffb454',tension:.3,fill:false,pointRadius:0,borderDash:[5,4]}]},options:{plugins:{legend:{display:true}}}});
