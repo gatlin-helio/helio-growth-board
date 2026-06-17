@@ -23,7 +23,10 @@ h2{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:600;m
 ul.arch{columns:2;font-size:13px;margin:0;padding-left:18px}ul.arch a{color:#f87500;text-decoration:none}ul.arch a:hover{text-decoration:underline}
 .foot{color:rgba(43,33,26,.45);font-size:12px;margin-top:26px;border-top:1px solid #ebe6dd;padding-top:14px}
 .dt{width:100%;border-collapse:collapse;font-size:12.5px}.dt th,.dt td{padding:7px 11px;border-bottom:1px solid #f0ebe2;text-align:right;font-variant-numeric:tabular-nums}.dt th:first-child,.dt td:first-child{text-align:left}.dt th{color:rgba(43,33,26,.55);font-weight:600;position:sticky;top:0;background:#fff}
-details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 14px;background:#faf8f4}summary{cursor:pointer;font-size:13px;color:#1a120c;font-weight:500}details pre{white-space:pre-wrap;font-size:12px;color:#3a2f28;overflow-x:auto;margin:8px 0 4px}
+details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 16px;background:#faf8f4}summary{cursor:pointer;font-size:13.5px;color:#1a120c;font-weight:600}
+.md{padding:6px 0 4px}.md h4{font-family:'Playfair Display',Georgia,serif;font-size:15px;margin:13px 0 6px;color:#1a120c}.md h5{font-size:13px;margin:10px 0 4px;color:#1a120c;font-weight:600}
+.md p{margin:5px 0;font-size:13px;color:#3a2f28}.md ul{margin:5px 0;padding-left:19px;font-size:13px;color:#3a2f28}.md li{margin:3px 0}.md table{margin:9px 0}
+.md code{background:#f3f1ed;padding:1px 5px;border-radius:4px;font-size:12px;font-family:ui-monospace,Menlo,monospace}.md strong{color:#14110e}
 </style></head><body><div class=wrap>
 <h1>Helio 增长看板</h1>
 <div class=sub>真实口径 · 自动每日更新 · 数据源 PostHog（项目 Default）· 窗口 2026-05-29 ~ 今天</div>
@@ -87,145 +90,7 @@ details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 14p
 
 <div class=tab id=tab-reports>
 <h2>每日报告 · 点开查看</h2>
-<div class=panel><details><summary>_history.md</summary><pre># Helio 指标历史（真实口径）
-
-口径校正（2026-06-15）：此前日报里的「DAU」其实是访客UV（含匿名流量，约 4 倍虚高）。下表是**校正后的真实口径**，按 UTC 日。
-
-- 真实日活 = 当天有动作的已识别用户（有 email）
-- 核心活跃 = 发过 AI 消息的用户
-- 新增注册 = signup_started · 付费 = billing_plan_purchased · 访客UV = 全去重(含匿名)
-
-| 日期(UTC) | 真实日活 | 核心活跃 | 新增注册 | 付费 | 访客UV |
-|---|---|---|---|---|---|
-| 2026-06-01 | 230 | 146 | 32 | 1 | 896 |
-| 2026-06-02 | 211 | 141 | 30 | 7 | 749 |
-| 2026-06-03 | 241 | 159 | 41 | 1 | 1022 |
-| 2026-06-04 | 271 | 179 | 61 | 2 | 1318 |
-| 2026-06-05 | 191 | 103 | 32 | 0 | 816 |
-| 2026-06-06 | 101 | 52 | 15 | 0 | 406 |
-| 2026-06-07 | 76 | 40 | 7 | 1 | 292 |
-| 2026-06-08 | 143 | 80 | 12 | 1 | 571 |
-| 2026-06-09 | 231 | 179 | 54 | 2 | 1066 |
-| 2026-06-10 | 167 | 106 | 12 | 0 | 558 |
-| 2026-06-11 | 148 | 94 | 20 | 0 | 604 |
-| 2026-06-12 | 146 | 92 | 17 | 1 | 576 |
-| 2026-06-13 | 92 | 59 | 20 | 1 | 435 |
-| 2026-06-14 | 90 | 38 | 19 | 0 | 392 |
-| 2026-06-15 | 170 | 108 | 21 | 0 | 649 |
-| 2026-06-16 | 106 | 73 | 8 | 0 | 432 |
-
-_注：UTC 日，完整结算值。数据源 Yori PostHog（只读）。每天追加。_
-</pre></details><details><summary>2026-06-16.md</summary><pre># Helio 日报 · 2026-06-16 (UTC 完整)
-
-口径校正后版本（版本 C · 指标表）。真实日活 = 有 email 且当天有动作的用户；访客 UV 含匿名流量，为营销口径，不等于日活。
-
-🟡 真实日活 106 · 核心活跃 73 · 新增注册 8 · 付费 0
-
-| 维度 | 今日 6/16 | 昨日 6/15 | 上周二 6/9 | 口径 |
-|---|---|---|---|---|
-| 真实日活 | 106 | 170 | 231 | 有 email 且当天有动作 |
-| 核心活跃 | 73 | 108 | 179 | 发过 AI 消息（当日 4,111 条）|
-| 新增注册 | **8** | 21 | 54 | signup_started |
-| 付费 | 0 | 0 | 2 | billing_plan_purchased |
-| 访客 UV | 432 | 655 | 1066 | 全去重 distinct_id（含匿名，营销口径）|
-
-## 读法
-
-周一（6/15）的反弹没接上。周二真实日活回落到 106（-38% DoD），新增注册掉回 8——昨天破 20 的 21 是单日峰，不是趋势反转。获客弱势仍是主线。
-
-诚实对照：上周二 6/9（231）本身是局部高点（那天 signup 54、是周一低谷后的反弹日），拿它比会放大跌幅。更干净的信号是 **7 日均真实日活 131（6/10–6/16），前一周 179 → -27%**，比 6/15 的 149 还低——校正口径的真实日活这条线仍在缓慢下行，未企稳。
-
-付费连续 3 天 0（6/14/15/16）值得开始盯。不是没人看：6/16 plan_select_click 仅 2（6/15 为 6），manage_pay 4。低 select + 0 成单与整体低活跃（106）一致，更像淡日小数，但上一单是 6/13——再 1-2 个 weekday 不出单则单独排查付费链路。
-
-数据源：Yori 的 PostHog（只读 API Key，US 区 / Default project）。UTC 日完整结算值。
-</pre></details><details><summary>2026-06-15.md</summary><pre># Helio 日报 · 2026-06-15 (UTC 完整)
-
-口径校正后版本（版本 C · 指标表）。真实日活 = 有 email 且当天有动作的用户；访客 UV 含匿名流量，为营销口径，不等于日活。
-
-🟢 真实日活 170 · 核心活跃 108 · 新增注册 21 · 付费 0
-
-| 维度 | 今日 6/15 | 昨日 6/14 | 上周一 6/8 | 口径 |
-|---|---|---|---|---|
-| 真实日活 | **170** | 90 | 143 | 有 email 且当天有动作 |
-| 核心活跃 | **108** | 38 | 80 | 发过 AI 消息（当日 4,978 条）|
-| 新增注册 | **21** | 19 | 12 | signup_started |
-| 付费 | 0 | 0 | 1 | billing_plan_purchased |
-| 访客 UV | 649 | 392 | 571 | 全去重 distinct_id（含匿名，营销口径）|
-
-## 读法
-
-周一测试通过：连续三个 weekday 新增注册 &lt;20（6/10 12 / 6/11 20 / 6/12 17）的获客弱势，在 6/15 周一被打破（21）。真实日活 170 vs 上周一 6/8（143）= **+19% WoW**，核心活跃 108 是两周来最高。真实日活、核心活跃、新增三项同时 vs 上周一转正，是这两周第一次 weekday like-for-like 全面回正——印证周末两天的判断：上周低谷是 launch 尾巴退潮，不是产品掉用户。
-
-唯一弱项：付费 0（上周一有 1 单）。但 6/12+6/13 出过单，周一 0 更可能是节奏波动，等本周后面 weekday 再看。
-
-真实日活近况：峰值 271（6/4）→ 谷底 76（6/7）→ 本周 6/13 92 / 6/14 90 / **6/15 170**。7 日均 149 vs 上周 176 仍 -15%，但周内尾段（13→14→15）往上走。
-
-注：本文件为 6/15 UTC 完整结算值，覆盖早间约 03:30 UTC 的进行中快照（当时真实日活 46）。数据源：Yori 的 PostHog（只读 API Key，US 区 / Default project）。
-</pre></details><details><summary>2026-06-15-weekly-usage.md</summary><pre># Helio 过去一周用户使用情况分析（6/8–6/15 UTC）
-
-数据源：helio-prod 生产库（只读）。活跃发言口径 = 当周发过文字消息、带客户端标识的真人用户。
-
-## 1. 规模
-- 本周新 onboarding 用户：**275**
-- 本周新建 workspace：**2361** · 新建频道（非通知类）：**2069**
-- 当周真人发言用户（desktop 口径，下限）：**262** 人
-- 真人文字消息：**3188** 条，涉及 **613** 个频道
-- ⚠️ 关键缺口：新建 workspace 2361 vs 真正发言 262 —— 绝大多数新用户走完 onboarding 建了 workspace 就不再说话，**激活/留存断层明显**（和真实日活仅 ~90 一致）。
-
-## 2. 使用强度
-- 人均消息中位数仅 **3** 条；但 top10 用户贡献 **1295 条（41%）**。
-- 结论：**极度头部集中**——一小撮重度用户撑起大部分使用量，长尾基本试一下就走。
-
-## 3. 用户进来想干嘛（onboarding 选的场景 / 角色，275 人）
-场景：ship 建/发布 129 · create 创作 54 · explore 探索 39 · data 数据 34 · design 设计 17 · reach 增长 15
-角色 Top：tech-lead 166 · engineer 150 · qa-tester 119 · code-reviewer 118 · writer 94 · editor 53 · researcher 45 · analyst 34 · pm 31 · data-engineer 30 · designer 22 · brand-strategist 19 · outreach-writer 18 · marketer 18
-→ **意图高度偏软件工程**（建产品/写代码/测试/审查），其次内容创作，再到研究、数据、设计、营销。
-
-## 4. 用户实际在做什么（262 活跃人触及的场景，可多选）
-- 编程/开发：**83 人 (32%)**
-- 内容创作/文案：**77 人 (29%)**
-- 研究/调研：**75 人 (29%)**
-- 设计：**64 人 (24%)**
-- 数据/分析：**62 人 (24%)**
-- 营销/KOL/增长：**58 人 (22%)**
-- 规划/管理：42 人 (16%)
-→ 使用面非常**横向**，编程领跑，但内容/研究/设计/数据/营销几乎平分秋色。Helio 被当成全能助手用，而非单一场景工具。
-
-## 5. 真实案例场景（节选）
-- 编程：「我要做个 MVP，你们别帮我搞 API key」「先把 skill 的逻辑设计好」「改设计文档然后提交 PR 给我」
-- 内容：「写一个 AI 产品经理课程标题，吸引想转行的 PM」「写一篇业内 auto research 分析」
-- 研究：「我想做出海 AI 产品赚美金，锚定儿童方向，帮我调研儿童品类 AI SaaS」
-- 数据：「把这几个数据区分开做几版汇报」（注：你自己也在样本里）
-- 营销：「做一个个人品牌 IP 自媒体工作流」「帮我实现 X 500 万曝光」
-- 设计：「怎么接 figma」
-- 画像信号：不少「做日入 1 美金方案 / 出海赚美金 / 涨粉曝光」——**独立开发者 / solopreneur** 人群占比可观。
-
-## 6. 给你的 3 个判断
-1. **获客不缺、激活缺**：每周 2000+ 新 workspace，但只有 ~260 人真正说话、~90 真实日活。漏斗第一跳（onboarding→首次有效使用）是最大流失点。
-2. **核心场景是「写代码/建东西」**：onboarding 和真实使用都指向工程/创作，营销类是少数。产品叙事和模板可优先服务 indie hacker / 小团队建产品。
-3. **重度用户极少但极活跃**：top10 占 41% 消息。值得单独看这十几个人是谁、在 build 什么——既是案例素材，也是留存抓手。
-
-口径与方法：真人=带 client_msg_id 的 channel_text；外部接口(Lark/微信)若不带该标识会漏，故 262 为下限。场景为中文关键词归类，近似、可多归。UTC 周。
-</pre></details><details><summary>2026-06-15-utm.md</summary><pre># UTM / 渠道日报 · 2026-06-15
-
-结论：有效获客主要靠 X（激活率最高）；直接流量量大但激活偏低；LinkedIn 有量无转化；Discord 仍 0（需投放链接带 utm_source 才可见）。规则：当天有 ≥1 访问的渠道全列，0 激活也写。
-
-## 6/15（当日进行中）
-| 渠道 | 访问 | 激活 | 激活率 |
-|---|---|---|---|
-| 直接/未标记 | 50 | 5 | 10% |
-| X | 8 | 1 | 12% |
-| LinkedIn | 1 | 0 | 0% |
-
-## 6/14（完整，对照）
-| 渠道 | 访问 | 激活 | 激活率 |
-|---|---|---|---|
-| 直接/未标记 | 97 | 9 | 9% |
-| X | 76 | 10 | 13% |
-| 微信 | 1 | 0 | 0% |
-
-口径：访问 = 该 utm_source 当天 $pageview 去重访客；激活（宽口径）= 当天落地访客同日触发 signup_started / assistant_created / ai_message_sent 任一。近 7 天还出现过 YouTube、ChatGPT。Discord 14 天 0 痕迹。数据源：Yori PostHog（只读）。
-</pre></details></div>
+<div class=panel><details><summary>_history.md</summary><div class=md><h4>Helio 指标历史（真实口径）</h4><p>口径校正（2026-06-15）：此前日报里的「DAU」其实是访客UV（含匿名流量，约 4 倍虚高）。下表是<strong>校正后的真实口径</strong>，按 UTC 日。</p><ul><li>真实日活 = 当天有动作的已识别用户（有 email）</li><li>核心活跃 = 发过 AI 消息的用户</li><li>新增注册 = signup_started · 付费 = billing_plan_purchased · 访客UV = 全去重(含匿名)</li></ul><table class=dt><tr><th>日期(UTC)</th><th>真实日活</th><th>核心活跃</th><th>新增注册</th><th>付费</th><th>访客UV</th></tr><tr><td>2026-06-01</td><td>230</td><td>146</td><td>32</td><td>1</td><td>896</td></tr><tr><td>2026-06-02</td><td>211</td><td>141</td><td>30</td><td>7</td><td>749</td></tr><tr><td>2026-06-03</td><td>241</td><td>159</td><td>41</td><td>1</td><td>1022</td></tr><tr><td>2026-06-04</td><td>271</td><td>179</td><td>61</td><td>2</td><td>1318</td></tr><tr><td>2026-06-05</td><td>191</td><td>103</td><td>32</td><td>0</td><td>816</td></tr><tr><td>2026-06-06</td><td>101</td><td>52</td><td>15</td><td>0</td><td>406</td></tr><tr><td>2026-06-07</td><td>76</td><td>40</td><td>7</td><td>1</td><td>292</td></tr><tr><td>2026-06-08</td><td>143</td><td>80</td><td>12</td><td>1</td><td>571</td></tr><tr><td>2026-06-09</td><td>231</td><td>179</td><td>54</td><td>2</td><td>1066</td></tr><tr><td>2026-06-10</td><td>167</td><td>106</td><td>12</td><td>0</td><td>558</td></tr><tr><td>2026-06-11</td><td>148</td><td>94</td><td>20</td><td>0</td><td>604</td></tr><tr><td>2026-06-12</td><td>146</td><td>92</td><td>17</td><td>1</td><td>576</td></tr><tr><td>2026-06-13</td><td>92</td><td>59</td><td>20</td><td>1</td><td>435</td></tr><tr><td>2026-06-14</td><td>90</td><td>38</td><td>19</td><td>0</td><td>392</td></tr><tr><td>2026-06-15</td><td>170</td><td>108</td><td>21</td><td>0</td><td>649</td></tr><tr><td>2026-06-16</td><td>106</td><td>73</td><td>8</td><td>0</td><td>432</td></tr></table><p>_注：UTC 日，完整结算值。数据源 Yori PostHog（只读）。每天追加。_</p></div></details><details><summary>2026-06-16.md</summary><div class=md><h4>Helio 日报 · 2026-06-16 (UTC 完整)</h4><p>口径校正后版本（版本 C · 指标表）。真实日活 = 有 email 且当天有动作的用户；访客 UV 含匿名流量，为营销口径，不等于日活。</p><p>🟡 真实日活 106 · 核心活跃 73 · 新增注册 8 · 付费 0</p><table class=dt><tr><th>维度</th><th>今日 6/16</th><th>昨日 6/15</th><th>上周二 6/9</th><th>口径</th></tr><tr><td>真实日活</td><td>106</td><td>170</td><td>231</td><td>有 email 且当天有动作</td></tr><tr><td>核心活跃</td><td>73</td><td>108</td><td>179</td><td>发过 AI 消息（当日 4,111 条）</td></tr><tr><td>新增注册</td><td><strong>8</strong></td><td>21</td><td>54</td><td>signup_started</td></tr><tr><td>付费</td><td>0</td><td>0</td><td>2</td><td>billing_plan_purchased</td></tr><tr><td>访客 UV</td><td>432</td><td>655</td><td>1066</td><td>全去重 distinct_id（含匿名，营销口径）</td></tr></table><h4>读法</h4><p>周一（6/15）的反弹没接上。周二真实日活回落到 106（-38% DoD），新增注册掉回 8——昨天破 20 的 21 是单日峰，不是趋势反转。获客弱势仍是主线。</p><p>诚实对照：上周二 6/9（231）本身是局部高点（那天 signup 54、是周一低谷后的反弹日），拿它比会放大跌幅。更干净的信号是 <strong>7 日均真实日活 131（6/10–6/16），前一周 179 → -27%</strong>，比 6/15 的 149 还低——校正口径的真实日活这条线仍在缓慢下行，未企稳。</p><p>付费连续 3 天 0（6/14/15/16）值得开始盯。不是没人看：6/16 plan_select_click 仅 2（6/15 为 6），manage_pay 4。低 select + 0 成单与整体低活跃（106）一致，更像淡日小数，但上一单是 6/13——再 1-2 个 weekday 不出单则单独排查付费链路。</p><p>数据源：Yori 的 PostHog（只读 API Key，US 区 / Default project）。UTC 日完整结算值。</p></div></details><details><summary>2026-06-15.md</summary><div class=md><h4>Helio 日报 · 2026-06-15 (UTC 完整)</h4><p>口径校正后版本（版本 C · 指标表）。真实日活 = 有 email 且当天有动作的用户；访客 UV 含匿名流量，为营销口径，不等于日活。</p><p>🟢 真实日活 170 · 核心活跃 108 · 新增注册 21 · 付费 0</p><table class=dt><tr><th>维度</th><th>今日 6/15</th><th>昨日 6/14</th><th>上周一 6/8</th><th>口径</th></tr><tr><td>真实日活</td><td><strong>170</strong></td><td>90</td><td>143</td><td>有 email 且当天有动作</td></tr><tr><td>核心活跃</td><td><strong>108</strong></td><td>38</td><td>80</td><td>发过 AI 消息（当日 4,978 条）</td></tr><tr><td>新增注册</td><td><strong>21</strong></td><td>19</td><td>12</td><td>signup_started</td></tr><tr><td>付费</td><td>0</td><td>0</td><td>1</td><td>billing_plan_purchased</td></tr><tr><td>访客 UV</td><td>649</td><td>392</td><td>571</td><td>全去重 distinct_id（含匿名，营销口径）</td></tr></table><h4>读法</h4><p>周一测试通过：连续三个 weekday 新增注册 &lt;20（6/10 12 / 6/11 20 / 6/12 17）的获客弱势，在 6/15 周一被打破（21）。真实日活 170 vs 上周一 6/8（143）= <strong>+19% WoW</strong>，核心活跃 108 是两周来最高。真实日活、核心活跃、新增三项同时 vs 上周一转正，是这两周第一次 weekday like-for-like 全面回正——印证周末两天的判断：上周低谷是 launch 尾巴退潮，不是产品掉用户。</p><p>唯一弱项：付费 0（上周一有 1 单）。但 6/12+6/13 出过单，周一 0 更可能是节奏波动，等本周后面 weekday 再看。</p><p>真实日活近况：峰值 271（6/4）→ 谷底 76（6/7）→ 本周 6/13 92 / 6/14 90 / <strong>6/15 170</strong>。7 日均 149 vs 上周 176 仍 -15%，但周内尾段（13→14→15）往上走。</p><p>注：本文件为 6/15 UTC 完整结算值，覆盖早间约 03:30 UTC 的进行中快照（当时真实日活 46）。数据源：Yori 的 PostHog（只读 API Key，US 区 / Default project）。</p></div></details><details><summary>2026-06-15-weekly-usage.md</summary><div class=md><h4>Helio 过去一周用户使用情况分析（6/8–6/15 UTC）</h4><p>数据源：helio-prod 生产库（只读）。活跃发言口径 = 当周发过文字消息、带客户端标识的真人用户。</p><h4>1. 规模</h4><ul><li>本周新 onboarding 用户：<strong>275</strong></li><li>本周新建 workspace：<strong>2361</strong> · 新建频道（非通知类）：<strong>2069</strong></li><li>当周真人发言用户（desktop 口径，下限）：<strong>262</strong> 人</li><li>真人文字消息：<strong>3188</strong> 条，涉及 <strong>613</strong> 个频道</li><li>⚠️ 关键缺口：新建 workspace 2361 vs 真正发言 262 —— 绝大多数新用户走完 onboarding 建了 workspace 就不再说话，<strong>激活/留存断层明显</strong>（和真实日活仅 ~90 一致）。</li></ul><h4>2. 使用强度</h4><ul><li>人均消息中位数仅 <strong>3</strong> 条；但 top10 用户贡献 <strong>1295 条（41%）</strong>。</li><li>结论：<strong>极度头部集中</strong>——一小撮重度用户撑起大部分使用量，长尾基本试一下就走。</li></ul><h4>3. 用户进来想干嘛（onboarding 选的场景 / 角色，275 人）</h4><p>场景：ship 建/发布 129 · create 创作 54 · explore 探索 39 · data 数据 34 · design 设计 17 · reach 增长 15</p><p>角色 Top：tech-lead 166 · engineer 150 · qa-tester 119 · code-reviewer 118 · writer 94 · editor 53 · researcher 45 · analyst 34 · pm 31 · data-engineer 30 · designer 22 · brand-strategist 19 · outreach-writer 18 · marketer 18</p><p>→ <strong>意图高度偏软件工程</strong>（建产品/写代码/测试/审查），其次内容创作，再到研究、数据、设计、营销。</p><h4>4. 用户实际在做什么（262 活跃人触及的场景，可多选）</h4><ul><li>编程/开发：<strong>83 人 (32%)</strong></li><li>内容创作/文案：<strong>77 人 (29%)</strong></li><li>研究/调研：<strong>75 人 (29%)</strong></li><li>设计：<strong>64 人 (24%)</strong></li><li>数据/分析：<strong>62 人 (24%)</strong></li><li>营销/KOL/增长：<strong>58 人 (22%)</strong></li><li>规划/管理：42 人 (16%)</li></ul><p>→ 使用面非常<strong>横向</strong>，编程领跑，但内容/研究/设计/数据/营销几乎平分秋色。Helio 被当成全能助手用，而非单一场景工具。</p><h4>5. 真实案例场景（节选）</h4><ul><li>编程：「我要做个 MVP，你们别帮我搞 API key」「先把 skill 的逻辑设计好」「改设计文档然后提交 PR 给我」</li><li>内容：「写一个 AI 产品经理课程标题，吸引想转行的 PM」「写一篇业内 auto research 分析」</li><li>研究：「我想做出海 AI 产品赚美金，锚定儿童方向，帮我调研儿童品类 AI SaaS」</li><li>数据：「把这几个数据区分开做几版汇报」（注：你自己也在样本里）</li><li>营销：「做一个个人品牌 IP 自媒体工作流」「帮我实现 X 500 万曝光」</li><li>设计：「怎么接 figma」</li><li>画像信号：不少「做日入 1 美金方案 / 出海赚美金 / 涨粉曝光」——<strong>独立开发者 / solopreneur</strong> 人群占比可观。</li></ul><h4>6. 给你的 3 个判断</h4><p>1. <strong>获客不缺、激活缺</strong>：每周 2000+ 新 workspace，但只有 ~260 人真正说话、~90 真实日活。漏斗第一跳（onboarding→首次有效使用）是最大流失点。</p><p>2. <strong>核心场景是「写代码/建东西」</strong>：onboarding 和真实使用都指向工程/创作，营销类是少数。产品叙事和模板可优先服务 indie hacker / 小团队建产品。</p><p>3. <strong>重度用户极少但极活跃</strong>：top10 占 41% 消息。值得单独看这十几个人是谁、在 build 什么——既是案例素材，也是留存抓手。</p><p>口径与方法：真人=带 client_msg_id 的 channel_text；外部接口(Lark/微信)若不带该标识会漏，故 262 为下限。场景为中文关键词归类，近似、可多归。UTC 周。</p></div></details><details><summary>2026-06-15-utm.md</summary><div class=md><h4>UTM / 渠道日报 · 2026-06-15</h4><p>结论：有效获客主要靠 X（激活率最高）；直接流量量大但激活偏低；LinkedIn 有量无转化；Discord 仍 0（需投放链接带 utm_source 才可见）。规则：当天有 ≥1 访问的渠道全列，0 激活也写。</p><h4>6/15（当日进行中）</h4><table class=dt><tr><th>渠道</th><th>访问</th><th>激活</th><th>激活率</th></tr><tr><td>直接/未标记</td><td>50</td><td>5</td><td>10%</td></tr><tr><td>X</td><td>8</td><td>1</td><td>12%</td></tr><tr><td>LinkedIn</td><td>1</td><td>0</td><td>0%</td></tr></table><h4>6/14（完整，对照）</h4><table class=dt><tr><th>渠道</th><th>访问</th><th>激活</th><th>激活率</th></tr><tr><td>直接/未标记</td><td>97</td><td>9</td><td>9%</td></tr><tr><td>X</td><td>76</td><td>10</td><td>13%</td></tr><tr><td>微信</td><td>1</td><td>0</td><td>0%</td></tr></table><p>口径：访问 = 该 utm_source 当天 $pageview 去重访客；激活（宽口径）= 当天落地访客同日触发 signup_started / assistant_created / ai_message_sent 任一。近 7 天还出现过 YouTube、ChatGPT。Discord 14 天 0 痕迹。数据源：Yori PostHog（只读）。</p></div></details></div>
 <h2>日报归档（GitHub 原文）</h2>
 <div class=panel><ul class=arch><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/_history.md" target=_blank>_history.md</a></li><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/2026-06-16.md" target=_blank>2026-06-16.md</a></li><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/2026-06-15.md" target=_blank>2026-06-15.md</a></li><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/2026-06-15-weekly-usage.md" target=_blank>2026-06-15-weekly-usage.md</a></li><li><a href="https://github.com/YoriHan/DAU-Dashboard/blob/main/reports/2026-06-15-utm.md" target=_blank>2026-06-15-utm.md</a></li></ul></div>
 </div>
