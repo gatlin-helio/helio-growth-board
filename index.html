@@ -10,6 +10,8 @@ h2{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:600;m
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
 .k{background:#fff;border:1px solid #ebe6dd;border-radius:14px;padding:15px 17px;box-shadow:0 1px 3px rgba(43,33,26,.05)}.k .n{font-family:'Playfair Display',Georgia,serif;font-size:29px;font-weight:600;color:#0a0503}.k .l{font-size:12px;color:rgba(43,33,26,.6);margin-top:2px}.k .d{font-size:11px;margin-top:3px;color:rgba(43,33,26,.5)}
 .up{color:#3f754f}.down{color:#bf290e}
+.k .def{font-size:10.5px;color:rgba(43,33,26,.42);margin-top:3px}
+.cap{font-size:13px;font-weight:600;color:#1a120c;margin:0 0 4px}.cap .caps{font-size:11.5px;color:rgba(43,33,26,.5);font-weight:400}.capwrap{margin-bottom:9px}
 .tabbar{display:flex;align-items:center;gap:10px;margin:22px 0 10px;flex-wrap:wrap}
 .tabhint{font-size:12px;color:rgba(43,33,26,.45);white-space:nowrap}
 .tabs{display:inline-flex;flex-wrap:wrap;gap:3px;background:#f3f1ed;border:1px solid #e6e0d6;border-radius:12px;padding:4px}
@@ -33,12 +35,12 @@ details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 16p
 
 <h2>核心指标（最近完整一天 2026-06-16 UTC）</h2>
 <div class=kpis>
-<div class=k><div class=n>107</div><div class=l>真实日活</div><div class="d">有 email 且当天有动作</div></div>
-<div class=k><div class=n>75</div><div class=l>核心活跃</div><div class="d">发过 AI 消息</div></div>
-<div class=k><div class=n>8</div><div class=l>新增注册</div><div class="d">signup_started</div></div>
-<div class=k><div class=n>0</div><div class=l>付费</div><div class="d">billing_plan_purchased</div></div>
-<div class=k><div class=n>123.6</div><div class=l>真实日活·7日均</div><div class="d down">-27% vs 前7日</div></div>
-<div class=k><div class=n>442</div><div class=l>访客 UV</div><div class="d">含匿名·营销口径</div></div>
+<div class=k><div class=n>107</div><div class=l>真实日活</div><div class="d down">▼ 63（-37%）环比前日</div><div class=def>有 email 且当天有动作</div></div>
+<div class=k><div class=n>75</div><div class=l>核心活跃</div><div class="d down">▼ 33（-31%）环比前日</div><div class=def>发过 AI 消息</div></div>
+<div class=k><div class=n>8</div><div class=l>新增注册</div><div class="d down">▼ 13（-62%）环比前日</div><div class=def>signup_started</div></div>
+<div class=k><div class=n>0</div><div class=l>付费</div><div class="d up">▲ 0（+0%）环比前日</div><div class=def>billing_plan_purchased</div></div>
+<div class=k><div class=n>123.6</div><div class=l>真实日活·7日均</div><div class="d down">▼ -27% 环比前7日</div><div class=def>7日滑动平均</div></div>
+<div class=k><div class=n>443</div><div class=l>访客 UV</div><div class="d down">▼ 212（-32%）环比前日</div><div class=def>含匿名·营销口径</div></div>
 </div>
 
 <div class=tabbar><span class=tabhint>👇 点击切换板块</span>
@@ -52,7 +54,7 @@ details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 16p
 
 <div class="tab on" id=tab-overview>
 <h2>真实日活趋势（含 7 日均线）</h2>
-<div class=panel><canvas id=cDau></canvas></div>
+<div class=panel><div class=cap>真实日活 + 7日均线<span class=caps>· 蓝线=每天真实日活，橙虚线=7日滑动平均（看趋势，抹掉单日波动）</span></div><canvas id=cDau></canvas></div>
 <h2>趋势分析</h2>
 <div class="panel an">真实日活峰值 280（2026-05-29），低谷 76（2026-06-07）；最近完整一天 2026-06-16 = 107。
 近 7 日均值 123.6，对比前 7 日 168.6，环比 -27%。
@@ -60,19 +62,25 @@ details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 16p
 </div>
 
 <div class=tab id=tab-activity>
-<h2>核心活跃 / 新增注册 / 付费 趋势</h2>
-<div class=row2><div class=panel><canvas id=cCore></canvas></div><div class=panel><canvas id=cSig></canvas></div></div>
-<div class=row2><div class=panel><canvas id=cPaid></canvas></div><div class=panel><canvas id=cUv></canvas></div></div>
+<h2>活跃 / 新增 / 付费 / 访客 趋势</h2>
+<div class=row2>
+<div class=panel><div class=cap>核心活跃<span class=caps>· 每天发过 AI 消息的人数</span></div><canvas id=cCore></canvas></div>
+<div class=panel><div class=cap>新增注册<span class=caps>· 每天 signup_started 人数</span></div><canvas id=cSig></canvas></div>
+</div>
+<div class=row2>
+<div class=panel><div class=cap>付费<span class=caps>· 每天 billing_plan_purchased 笔数</span></div><canvas id=cPaid></canvas></div>
+<div class=panel><div class=cap>访客 UV<span class=caps>· 每天独立访客（含匿名，营销口径）</span></div><canvas id=cUv></canvas></div>
+</div>
 </div>
 
 <div class=tab id=tab-channel>
 <h2>获客渠道 · 每日访问趋势</h2>
-<div class=panel><canvas id=cChanDaily></canvas></div>
+<div class=panel><div class=cap>各渠道每日访问量<span class=caps>· 5 条线 = 5 类来源；鼠标悬停某天可看到每个渠道的具体访客数</span></div><canvas id=cChanDaily></canvas></div>
 <h2>社交访问 vs 真实日活 — 验证「日活是否被渠道带动」</h2>
-<div class="panel"><canvas id=cSocialDau></canvas><div class=an style="margin-top:8px">社交访问↔日活相关系数 <b>0.74</b>，新增↔日活 <b>0.82</b>。两条线基本同涨同跌 → 日活跟着获客渠道走。</div></div>
+<div class="panel"><div class=cap>社交访问量 vs 真实日活（双轴）<span class=caps>· 左轴=社交访问，右轴=真实日活；看两条线是否同涨同跌</span></div><canvas id=cSocialDau></canvas><div class=an style="margin-top:8px">社交访问↔日活相关系数 <b>0.74</b>，新增↔日活 <b>0.82</b>。两条线基本同涨同跌 → 日活跟着获客渠道走。</div></div>
 <div class=row2>
-<div><h2>近 7 日各渠道 落地 → 激活</h2><div class=panel><table class=dt><tr><th>渠道</th><th>落地访客</th><th>激活</th><th>激活率</th></tr><tr><td>自然社交</td><td>644</td><td>67</td><td>10%</td></tr><tr><td>自然搜索</td><td>215</td><td>28</td><td>13%</td></tr><tr><td>自然视频</td><td>17</td><td>1</td><td>6%</td></tr><tr><td>直接访问</td><td>483</td><td>37</td><td>8%</td></tr><tr><td>外部引荐</td><td>14</td><td>0</td><td>0%</td></tr></table></div></div>
-<div><h2>近 7 日 UTM 来源（标记流量）</h2><div class=panel><table class=dt><tr><th>utm_source</th><th>近7日访客</th></tr><tr><td>x</td><td>430</td></tr><tr><td>wechat</td><td>34</td></tr><tr><td>youtube</td><td>17</td></tr><tr><td>linkedin</td><td>6</td></tr><tr><td>twitter</td><td>4</td></tr><tr><td>chatgpt.com</td><td>2</td></tr></table></div></div>
+<div><h2>近 7 日各渠道 落地 → 激活</h2><div class=panel><div class=cap>近7日各渠道<span class=caps>· 落地访客数、其中激活的人数、激活率</span></div><table class=dt><tr><th>渠道</th><th>落地访客</th><th>激活</th><th>激活率</th></tr><tr><td>自然社交</td><td>646</td><td>67</td><td>10%</td></tr><tr><td>自然搜索</td><td>215</td><td>28</td><td>13%</td></tr><tr><td>自然视频</td><td>17</td><td>1</td><td>6%</td></tr><tr><td>直接访问</td><td>486</td><td>37</td><td>8%</td></tr><tr><td>外部引荐</td><td>14</td><td>0</td><td>0%</td></tr></table></div></div>
+<div><h2>近 7 日 UTM 来源（标记流量）</h2><div class=panel><div class=cap>近7日打了 UTM 标记的访客来源<span class=caps>· 只统计带 utm_source 的流量</span></div><table class=dt><tr><th>utm_source</th><th>近7日访客</th></tr><tr><td>x</td><td>432</td></tr><tr><td>wechat</td><td>34</td></tr><tr><td>youtube</td><td>17</td></tr><tr><td>linkedin</td><td>6</td></tr><tr><td>twitter</td><td>4</td></tr><tr><td>chatgpt.com</td><td>2</td></tr></table></div></div>
 </div>
 <h2>渠道与日活分析</h2>
 <div class="panel an">社交渠道访问 ↔ 真实日活 相关系数 = 0.74（强正相关）；总访问 ↔ 日活 = 0.91。
@@ -80,12 +88,12 @@ details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 16p
 结论：你的判断成立——日活高度跟着获客渠道走，主引擎是社交（X 为主）。日活的涨跌，先看当天 X/社交有没有推内容、带量进来；新增和日活基本同步，所以「拉新当天 = 日活当天」。
 近 7 日 UTM 标记流量里 X 占绝对多数，LinkedIn/微信/YouTube/ChatGPT 量级都很小——标记覆盖率低，大量自然流量没打 UTM，建议给每个投放位都挂 UTM 才能更准归因。</div>
 <h2>渠道快照（2026-06-16）</h2>
-<div class=panel><canvas id=cChan></canvas></div>
+<div class=panel><div class=cap>最近完整一天各渠道访问占比<span class=caps>· 横条 = 当天每个渠道的访客数，悬停看具体渠道与数值</span></div><canvas id=cChan></canvas></div>
 </div>
 
 <div class=tab id=tab-detail>
 <h2>每日数据明细（全部储存于此）</h2>
-<div class=panel style="max-height:560px;overflow:auto"><table class=dt><tr><th>日期(UTC)</th><th>真实日活</th><th>核心活跃</th><th>新增</th><th>付费</th><th>访客UV</th><th>7日均</th></tr><tr><td>2026-06-17</td><td>112</td><td>81</td><td>17</td><td>0</td><td>440</td><td>123.6</td></tr><tr><td>2026-06-16</td><td>107</td><td>75</td><td>8</td><td>0</td><td>442</td><td>131.4</td></tr><tr><td>2026-06-15</td><td>170</td><td>108</td><td>21</td><td>0</td><td>655</td><td>149.1</td></tr><tr><td>2026-06-14</td><td>90</td><td>38</td><td>19</td><td>0</td><td>392</td><td>145.3</td></tr><tr><td>2026-06-13</td><td>92</td><td>59</td><td>20</td><td>1</td><td>435</td><td>143.3</td></tr><tr><td>2026-06-12</td><td>146</td><td>92</td><td>17</td><td>1</td><td>576</td><td>144.6</td></tr><tr><td>2026-06-11</td><td>148</td><td>94</td><td>20</td><td>0</td><td>605</td><td>151.0</td></tr><tr><td>2026-06-10</td><td>167</td><td>106</td><td>12</td><td>0</td><td>558</td><td>168.6</td></tr><tr><td>2026-06-09</td><td>231</td><td>179</td><td>54</td><td>2</td><td>1066</td><td>179.1</td></tr><tr><td>2026-06-08</td><td>143</td><td>80</td><td>12</td><td>1</td><td>571</td><td>176.3</td></tr><tr><td>2026-06-07</td><td>76</td><td>40</td><td>7</td><td>1</td><td>292</td><td>188.7</td></tr><tr><td>2026-06-06</td><td>101</td><td>52</td><td>15</td><td>0</td><td>406</td><td>193.0</td></tr><tr><td>2026-06-05</td><td>191</td><td>103</td><td>32</td><td>0</td><td>816</td><td>196.4</td></tr><tr><td>2026-06-04</td><td>271</td><td>179</td><td>61</td><td>2</td><td>1318</td><td>209.1</td></tr><tr><td>2026-06-03</td><td>241</td><td>159</td><td>41</td><td>1</td><td>1022</td><td>198.8</td></tr><tr><td>2026-06-02</td><td>211</td><td>141</td><td>30</td><td>7</td><td>749</td><td>190.4</td></tr><tr><td>2026-06-01</td><td>230</td><td>146</td><td>32</td><td>1</td><td>896</td><td>185.2</td></tr><tr><td>2026-05-31</td><td>106</td><td>67</td><td>9</td><td>1</td><td>362</td><td>170.3</td></tr><tr><td>2026-05-30</td><td>125</td><td>84</td><td>20</td><td>0</td><td>450</td><td>202.5</td></tr><tr><td>2026-05-29</td><td>280</td><td>156</td><td>32</td><td>4</td><td>984</td><td>280.0</td></tr></table></div>
+<div class=panel style="max-height:560px;overflow:auto"><table class=dt><tr><th>日期(UTC)</th><th>真实日活</th><th>核心活跃</th><th>新增</th><th>付费</th><th>访客UV</th><th>7日均</th></tr><tr><td>2026-06-17</td><td>112</td><td>81</td><td>17</td><td>0</td><td>444</td><td>123.6</td></tr><tr><td>2026-06-16</td><td>107</td><td>75</td><td>8</td><td>0</td><td>443</td><td>131.4</td></tr><tr><td>2026-06-15</td><td>170</td><td>108</td><td>21</td><td>0</td><td>655</td><td>149.1</td></tr><tr><td>2026-06-14</td><td>90</td><td>38</td><td>19</td><td>0</td><td>392</td><td>145.3</td></tr><tr><td>2026-06-13</td><td>92</td><td>59</td><td>20</td><td>1</td><td>435</td><td>143.3</td></tr><tr><td>2026-06-12</td><td>146</td><td>92</td><td>17</td><td>1</td><td>576</td><td>144.6</td></tr><tr><td>2026-06-11</td><td>148</td><td>94</td><td>20</td><td>0</td><td>605</td><td>151.0</td></tr><tr><td>2026-06-10</td><td>167</td><td>106</td><td>12</td><td>0</td><td>558</td><td>168.6</td></tr><tr><td>2026-06-09</td><td>231</td><td>179</td><td>54</td><td>2</td><td>1066</td><td>179.1</td></tr><tr><td>2026-06-08</td><td>143</td><td>80</td><td>12</td><td>1</td><td>571</td><td>176.3</td></tr><tr><td>2026-06-07</td><td>76</td><td>40</td><td>7</td><td>1</td><td>292</td><td>188.7</td></tr><tr><td>2026-06-06</td><td>101</td><td>52</td><td>15</td><td>0</td><td>406</td><td>193.0</td></tr><tr><td>2026-06-05</td><td>191</td><td>103</td><td>32</td><td>0</td><td>816</td><td>196.4</td></tr><tr><td>2026-06-04</td><td>271</td><td>179</td><td>61</td><td>2</td><td>1318</td><td>209.1</td></tr><tr><td>2026-06-03</td><td>241</td><td>159</td><td>41</td><td>1</td><td>1022</td><td>198.8</td></tr><tr><td>2026-06-02</td><td>211</td><td>141</td><td>30</td><td>7</td><td>749</td><td>190.4</td></tr><tr><td>2026-06-01</td><td>230</td><td>146</td><td>32</td><td>1</td><td>896</td><td>185.2</td></tr><tr><td>2026-05-31</td><td>106</td><td>67</td><td>9</td><td>1</td><td>362</td><td>170.3</td></tr><tr><td>2026-05-30</td><td>125</td><td>84</td><td>20</td><td>0</td><td>450</td><td>202.5</td></tr><tr><td>2026-05-29</td><td>280</td><td>156</td><td>32</td><td>4</td><td>984</td><td>280.0</td></tr></table></div>
 </div>
 
 <div class=tab id=tab-reports>
@@ -97,7 +105,8 @@ details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 16p
 
 <div class=foot>口径：真实日活=uniq(person_id) email 非空且当天有动作；核心活跃=ai_message_sent uniq；新增=signup_started uniq；付费=billing_plan_purchased 次数；访客UV=全 distinct_id（含匿名，营销口径）。本页由 Gatlin 自动生成，随每日日报刷新。图表用 Chart.js（需联网）。</div>
 </div>
-<script>const D={"labels": ["05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17"], "rdau": [280, 125, 106, 230, 211, 241, 271, 191, 101, 76, 143, 231, 167, 148, 146, 92, 90, 170, 107, 112], "ma": [280.0, 202.5, 170.3, 185.2, 190.4, 198.8, 209.1, 196.4, 193.0, 188.7, 176.3, 179.1, 168.6, 151.0, 144.6, 143.3, 145.3, 149.1, 131.4, 123.6], "core": [156, 84, 67, 146, 141, 159, 179, 103, 52, 40, 80, 179, 106, 94, 92, 59, 38, 108, 75, 81], "sig": [32, 20, 9, 32, 30, 41, 61, 32, 15, 7, 12, 54, 12, 20, 17, 20, 19, 21, 8, 17], "paid": [4, 0, 1, 1, 7, 1, 2, 0, 0, 1, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0], "uv": [984, 450, 362, 896, 749, 1022, 1318, 816, 406, 292, 571, 1066, 558, 605, 576, 435, 392, 655, 442, 440], "chL": ["自然社交", "直接访问", "外部引荐", "自然搜索", "自然视频"], "chV": [62, 86, 3, 37, 7], "chanS": {"自然社交": [158, 103, 56, 152, 108, 249, 335, 171, 84, 56, 86, 144, 44, 144, 103, 121, 98, 103, 62, 66], "自然搜索": [36, 16, 17, 41, 45, 56, 119, 47, 20, 17, 50, 145, 42, 38, 33, 21, 27, 43, 37, 36], "自然视频": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 6, 7, 3], "直接访问": [218, 77, 83, 216, 168, 153, 204, 161, 62, 53, 128, 146, 115, 89, 103, 62, 50, 110, 86, 78], "外部引荐": [3, 1, 3, 6, 6, 1, 9, 6, 2, 0, 3, 5, 5, 1, 4, 2, 0, 4, 3, 1]}, "social": [158, 103, 56, 152, 108, 249, 335, 171, 84, 56, 86, 144, 44, 144, 103, 121, 98, 103, 62, 66], "totV": [415, 197, 159, 415, 327, 459, 667, 385, 168, 126, 267, 440, 206, 275, 243, 206, 175, 266, 195, 184]};Chart.defaults.color='rgba(43,33,26,.55)';Chart.defaults.borderColor='rgba(43,33,26,.09)';Chart.defaults.font.family="'DM Sans',sans-serif";
+<script>const D={"labels": ["05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17"], "rdau": [280, 125, 106, 230, 211, 241, 271, 191, 101, 76, 143, 231, 167, 148, 146, 92, 90, 170, 107, 112], "ma": [280.0, 202.5, 170.3, 185.2, 190.4, 198.8, 209.1, 196.4, 193.0, 188.7, 176.3, 179.1, 168.6, 151.0, 144.6, 143.3, 145.3, 149.1, 131.4, 123.6], "core": [156, 84, 67, 146, 141, 159, 179, 103, 52, 40, 80, 179, 106, 94, 92, 59, 38, 108, 75, 81], "sig": [32, 20, 9, 32, 30, 41, 61, 32, 15, 7, 12, 54, 12, 20, 17, 20, 19, 21, 8, 17], "paid": [4, 0, 1, 1, 7, 1, 2, 0, 0, 1, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0], "uv": [984, 450, 362, 896, 749, 1022, 1318, 816, 406, 292, 571, 1066, 558, 605, 576, 435, 392, 655, 443, 444], "chL": ["自然社交", "直接访问", "外部引荐", "自然搜索", "自然视频"], "chV": [62, 87, 3, 37, 7], "chanS": {"自然社交": [158, 103, 56, 152, 108, 249, 335, 171, 84, 56, 86, 144, 44, 144, 103, 121, 98, 103, 62, 68], "自然搜索": [36, 16, 17, 41, 45, 56, 119, 47, 20, 17, 50, 145, 42, 38, 33, 21, 27, 43, 37, 36], "自然视频": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 6, 7, 3], "直接访问": [218, 77, 83, 216, 168, 153, 204, 161, 62, 53, 128, 146, 115, 89, 103, 62, 50, 110, 87, 80], "外部引荐": [3, 1, 3, 6, 6, 1, 9, 6, 2, 0, 3, 5, 5, 1, 4, 2, 0, 4, 3, 1]}, "social": [158, 103, 56, 152, 108, 249, 335, 171, 84, 56, 86, 144, 44, 144, 103, 121, 98, 103, 62, 68], "totV": [415, 197, 159, 415, 327, 459, 667, 385, 168, 126, 267, 440, 206, 275, 243, 206, 175, 266, 196, 188]};Chart.defaults.color='rgba(43,33,26,.55)';Chart.defaults.borderColor='rgba(43,33,26,.09)';Chart.defaults.font.family="'DM Sans',sans-serif";
+Chart.defaults.interaction={mode:'index',intersect:false};Chart.defaults.plugins.tooltip.padding=10;Chart.defaults.plugins.tooltip.boxPadding=4;Chart.defaults.plugins.tooltip.titleColor='#fff';Chart.defaults.plugins.tooltip.usePointStyle=true;
 const ACC='#f87500',INFO='#476c90',OK='#3f754f',WARN='#af5a21',MUT='#b3a796';
 const line=(label,data,color,extra={})=>({type:'line',data:{labels:D.labels,datasets:[{label,data,borderColor:color,backgroundColor:color,tension:.3,fill:false,pointRadius:2,...extra}]},options:{plugins:{legend:{display:false}}}});
 const CC={'自然社交':ACC,'自然搜索':OK,'自然视频':WARN,'直接访问':INFO,'外部引荐':MUT};
