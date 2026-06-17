@@ -1,22 +1,26 @@
 <!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
 <title>Helio 增长看板</title><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<style>*{box-sizing:border-box}body{font-family:-apple-system,"PingFang SC",Segoe UI,sans-serif;margin:0;background:#0f1419;color:#e6e9ee;line-height:1.55}
-.wrap{max-width:1080px;margin:0 auto;padding:26px}h1{font-size:22px;margin:0 0 2px}.sub{color:#8a93a0;font-size:13px;margin-bottom:18px}
-h2{font-size:15px;margin:26px 0 10px;color:#cfd6df;border-left:3px solid #4f8cff;padding-left:9px}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box}body{font-family:'DM Sans',-apple-system,"PingFang SC",Segoe UI,sans-serif;margin:0;background:#fffefd;color:#0a0503;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 26px 44px}
+h1{font-family:'Playfair Display',Georgia,serif;font-size:31px;font-weight:600;margin:0 0 3px;letter-spacing:-.01em;color:#14110e}
+.sub{color:rgba(43,33,26,.55);font-size:13px;margin-bottom:16px}
+h2{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:600;margin:24px 0 11px;color:#1a120c;border-left:3px solid #f87500;padding-left:11px}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.k{background:#171d26;border:1px solid #232b36;border-radius:12px;padding:14px 16px}.k .n{font-size:27px;font-weight:700}.k .l{font-size:12px;color:#8a93a0}.k .d{font-size:11px;margin-top:3px}
-.up{color:#3ddc84}.down{color:#ff6b6b}
-.tabs{display:flex;flex-wrap:wrap;gap:4px;margin:18px 0 6px;border-bottom:1px solid #232b36}
-.tabbtn{background:none;border:none;color:#8a93a0;font-size:13.5px;padding:9px 15px;cursor:pointer;border-bottom:2px solid transparent;font-family:inherit}
-.tabbtn:hover{color:#cfd6df}.tabbtn.on{color:#fff;border-bottom-color:#4f8cff}
+.k{background:#fff;border:1px solid #ebe6dd;border-radius:14px;padding:15px 17px;box-shadow:0 1px 3px rgba(43,33,26,.05)}.k .n{font-family:'Playfair Display',Georgia,serif;font-size:29px;font-weight:600;color:#0a0503}.k .l{font-size:12px;color:rgba(43,33,26,.6);margin-top:2px}.k .d{font-size:11px;margin-top:3px;color:rgba(43,33,26,.5)}
+.up{color:#3f754f}.down{color:#bf290e}
+.tabs{display:flex;flex-wrap:wrap;gap:2px;margin:22px 0 8px;border-bottom:1px solid #ebe6dd}
+.tabbtn{background:none;border:none;color:rgba(43,33,26,.55);font-size:14px;font-weight:500;padding:10px 17px;cursor:pointer;border-bottom:2px solid transparent;font-family:inherit;margin-bottom:-1px}
+.tabbtn:hover{color:#0a0503}.tabbtn.on{color:#f87500;border-bottom-color:#f87500}
 .tab{display:none}.tab.on{display:block}
-.panel{background:#171d26;border:1px solid #232b36;border-radius:12px;padding:16px;margin:12px 0}
+.panel{background:#fff;border:1px solid #ebe6dd;border-radius:14px;padding:18px;margin:12px 0;box-shadow:0 1px 3px rgba(43,33,26,.05)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.row2{grid-template-columns:1fr}}
-.an{font-size:13.5px;color:#c3cad4;white-space:pre-line}
-ul.arch{columns:2;font-size:13px;margin:0;padding-left:18px}ul.arch a{color:#4f8cff;text-decoration:none}
-.foot{color:#5b6573;font-size:12px;margin-top:20px;border-top:1px solid #232b36;padding-top:12px}
-.dt{width:100%;border-collapse:collapse;font-size:12.5px}.dt th,.dt td{padding:6px 10px;border-bottom:1px solid #232b36;text-align:right;font-variant-numeric:tabular-nums}.dt th:first-child,.dt td:first-child{text-align:left}.dt th{color:#8a93a0;font-weight:600;position:sticky;top:0;background:#171d26}
-details{border:1px solid #232b36;border-radius:8px;margin:6px 0;padding:4px 12px;background:#10151c}summary{cursor:pointer;font-size:13px;color:#cfd6df}details pre{white-space:pre-wrap;font-size:12px;color:#c3cad4;overflow-x:auto;margin:8px 0 4px}
+.an{font-size:13.5px;color:#3a2f28;white-space:pre-line}
+ul.arch{columns:2;font-size:13px;margin:0;padding-left:18px}ul.arch a{color:#f87500;text-decoration:none}ul.arch a:hover{text-decoration:underline}
+.foot{color:rgba(43,33,26,.45);font-size:12px;margin-top:26px;border-top:1px solid #ebe6dd;padding-top:14px}
+.dt{width:100%;border-collapse:collapse;font-size:12.5px}.dt th,.dt td{padding:7px 11px;border-bottom:1px solid #f0ebe2;text-align:right;font-variant-numeric:tabular-nums}.dt th:first-child,.dt td:first-child{text-align:left}.dt th{color:rgba(43,33,26,.55);font-weight:600;position:sticky;top:0;background:#fff}
+details{border:1px solid #ebe6dd;border-radius:10px;margin:6px 0;padding:5px 14px;background:#faf8f4}summary{cursor:pointer;font-size:13px;color:#1a120c;font-weight:500}details pre{white-space:pre-wrap;font-size:12px;color:#3a2f28;overflow-x:auto;margin:8px 0 4px}
 </style></head><body><div class=wrap>
 <h1>Helio 增长看板</h1>
 <div class=sub>真实口径 · 自动每日更新 · 数据源 PostHog（项目 Default）· 窗口 2026-05-29 ~ 今天</div>
@@ -27,7 +31,7 @@ details{border:1px solid #232b36;border-radius:8px;margin:6px 0;padding:4px 12px
 <div class=k><div class=n>75</div><div class=l>核心活跃</div><div class="d">发过 AI 消息</div></div>
 <div class=k><div class=n>8</div><div class=l>新增注册</div><div class="d">signup_started</div></div>
 <div class=k><div class=n>0</div><div class=l>付费</div><div class="d">billing_plan_purchased</div></div>
-<div class=k><div class=n>123.1</div><div class=l>真实日活·7日均</div><div class="d down">-27% vs 前7日</div></div>
+<div class=k><div class=n>123.3</div><div class=l>真实日活·7日均</div><div class="d down">-27% vs 前7日</div></div>
 <div class=k><div class=n>442</div><div class=l>访客 UV</div><div class="d">含匿名·营销口径</div></div>
 </div>
 
@@ -44,7 +48,7 @@ details{border:1px solid #232b36;border-radius:8px;margin:6px 0;padding:4px 12px
 <div class=panel><canvas id=cDau></canvas></div>
 <h2>趋势分析</h2>
 <div class="panel an">真实日活峰值 280（2026-05-29），低谷 76（2026-06-07）；最近完整一天 2026-06-16 = 107。
-近 7 日均值 123.1，对比前 7 日 168.6，环比 -27%。
+近 7 日均值 123.3，对比前 7 日 168.6，环比 -27%。
 口径校正后（真实日活=有 email 且当天有动作的用户，非全 UV），整体处于「launch 尾部回落 + 弱新增」阶段：5 月中那波涌入大多未沉淀，留存是核心缺口；付费层零星但还在。重点看每周一的新增能否站上 20。</div>
 </div>
 
@@ -60,7 +64,7 @@ details{border:1px solid #232b36;border-radius:8px;margin:6px 0;padding:4px 12px
 <h2>社交访问 vs 真实日活 — 验证「日活是否被渠道带动」</h2>
 <div class="panel"><canvas id=cSocialDau></canvas><div class=an style="margin-top:8px">社交访问↔日活相关系数 <b>0.74</b>，新增↔日活 <b>0.83</b>。两条线基本同涨同跌 → 日活跟着获客渠道走。</div></div>
 <div class=row2>
-<div><h2>近 7 日各渠道 落地 → 激活</h2><div class=panel><table class=dt><tr><th>渠道</th><th>落地访客</th><th>激活</th><th>激活率</th></tr><tr><td>自然社交</td><td>643</td><td>66</td><td>10%</td></tr><tr><td>自然搜索</td><td>215</td><td>28</td><td>13%</td></tr><tr><td>自然视频</td><td>17</td><td>1</td><td>6%</td></tr><tr><td>直接访问</td><td>481</td><td>36</td><td>7%</td></tr><tr><td>外部引荐</td><td>14</td><td>0</td><td>0%</td></tr></table></div></div>
+<div><h2>近 7 日各渠道 落地 → 激活</h2><div class=panel><table class=dt><tr><th>渠道</th><th>落地访客</th><th>激活</th><th>激活率</th></tr><tr><td>自然社交</td><td>643</td><td>66</td><td>10%</td></tr><tr><td>自然搜索</td><td>215</td><td>28</td><td>13%</td></tr><tr><td>自然视频</td><td>17</td><td>1</td><td>6%</td></tr><tr><td>直接访问</td><td>482</td><td>36</td><td>7%</td></tr><tr><td>外部引荐</td><td>14</td><td>0</td><td>0%</td></tr></table></div></div>
 <div><h2>近 7 日 UTM 来源（标记流量）</h2><div class=panel><table class=dt><tr><th>utm_source</th><th>近7日访客</th></tr><tr><td>x</td><td>430</td></tr><tr><td>wechat</td><td>34</td></tr><tr><td>youtube</td><td>17</td></tr><tr><td>linkedin</td><td>6</td></tr><tr><td>twitter</td><td>4</td></tr><tr><td>chatgpt.com</td><td>2</td></tr></table></div></div>
 </div>
 <h2>渠道与日活分析</h2>
@@ -74,7 +78,7 @@ details{border:1px solid #232b36;border-radius:8px;margin:6px 0;padding:4px 12px
 
 <div class=tab id=tab-detail>
 <h2>每日数据明细（全部储存于此）</h2>
-<div class=panel style="max-height:560px;overflow:auto"><table class=dt><tr><th>日期(UTC)</th><th>真实日活</th><th>核心活跃</th><th>新增</th><th>付费</th><th>访客UV</th><th>7日均</th></tr><tr><td>2026-06-17</td><td>109</td><td>79</td><td>16</td><td>0</td><td>429</td><td>123.1</td></tr><tr><td>2026-06-16</td><td>107</td><td>75</td><td>8</td><td>0</td><td>442</td><td>131.4</td></tr><tr><td>2026-06-15</td><td>170</td><td>108</td><td>21</td><td>0</td><td>655</td><td>149.1</td></tr><tr><td>2026-06-14</td><td>90</td><td>38</td><td>19</td><td>0</td><td>392</td><td>145.3</td></tr><tr><td>2026-06-13</td><td>92</td><td>59</td><td>20</td><td>1</td><td>435</td><td>143.3</td></tr><tr><td>2026-06-12</td><td>146</td><td>92</td><td>17</td><td>1</td><td>576</td><td>144.6</td></tr><tr><td>2026-06-11</td><td>148</td><td>94</td><td>20</td><td>0</td><td>605</td><td>151.0</td></tr><tr><td>2026-06-10</td><td>167</td><td>106</td><td>12</td><td>0</td><td>558</td><td>168.6</td></tr><tr><td>2026-06-09</td><td>231</td><td>179</td><td>54</td><td>2</td><td>1066</td><td>179.1</td></tr><tr><td>2026-06-08</td><td>143</td><td>80</td><td>12</td><td>1</td><td>571</td><td>176.3</td></tr><tr><td>2026-06-07</td><td>76</td><td>40</td><td>7</td><td>1</td><td>292</td><td>188.7</td></tr><tr><td>2026-06-06</td><td>101</td><td>52</td><td>15</td><td>0</td><td>406</td><td>193.0</td></tr><tr><td>2026-06-05</td><td>191</td><td>103</td><td>32</td><td>0</td><td>816</td><td>196.4</td></tr><tr><td>2026-06-04</td><td>271</td><td>179</td><td>61</td><td>2</td><td>1318</td><td>209.1</td></tr><tr><td>2026-06-03</td><td>241</td><td>159</td><td>41</td><td>1</td><td>1022</td><td>198.8</td></tr><tr><td>2026-06-02</td><td>211</td><td>141</td><td>30</td><td>7</td><td>749</td><td>190.4</td></tr><tr><td>2026-06-01</td><td>230</td><td>146</td><td>32</td><td>1</td><td>896</td><td>185.2</td></tr><tr><td>2026-05-31</td><td>106</td><td>67</td><td>9</td><td>1</td><td>362</td><td>170.3</td></tr><tr><td>2026-05-30</td><td>125</td><td>84</td><td>20</td><td>0</td><td>450</td><td>202.5</td></tr><tr><td>2026-05-29</td><td>280</td><td>156</td><td>32</td><td>4</td><td>984</td><td>280.0</td></tr></table></div>
+<div class=panel style="max-height:560px;overflow:auto"><table class=dt><tr><th>日期(UTC)</th><th>真实日活</th><th>核心活跃</th><th>新增</th><th>付费</th><th>访客UV</th><th>7日均</th></tr><tr><td>2026-06-17</td><td>110</td><td>80</td><td>16</td><td>0</td><td>434</td><td>123.3</td></tr><tr><td>2026-06-16</td><td>107</td><td>75</td><td>8</td><td>0</td><td>442</td><td>131.4</td></tr><tr><td>2026-06-15</td><td>170</td><td>108</td><td>21</td><td>0</td><td>655</td><td>149.1</td></tr><tr><td>2026-06-14</td><td>90</td><td>38</td><td>19</td><td>0</td><td>392</td><td>145.3</td></tr><tr><td>2026-06-13</td><td>92</td><td>59</td><td>20</td><td>1</td><td>435</td><td>143.3</td></tr><tr><td>2026-06-12</td><td>146</td><td>92</td><td>17</td><td>1</td><td>576</td><td>144.6</td></tr><tr><td>2026-06-11</td><td>148</td><td>94</td><td>20</td><td>0</td><td>605</td><td>151.0</td></tr><tr><td>2026-06-10</td><td>167</td><td>106</td><td>12</td><td>0</td><td>558</td><td>168.6</td></tr><tr><td>2026-06-09</td><td>231</td><td>179</td><td>54</td><td>2</td><td>1066</td><td>179.1</td></tr><tr><td>2026-06-08</td><td>143</td><td>80</td><td>12</td><td>1</td><td>571</td><td>176.3</td></tr><tr><td>2026-06-07</td><td>76</td><td>40</td><td>7</td><td>1</td><td>292</td><td>188.7</td></tr><tr><td>2026-06-06</td><td>101</td><td>52</td><td>15</td><td>0</td><td>406</td><td>193.0</td></tr><tr><td>2026-06-05</td><td>191</td><td>103</td><td>32</td><td>0</td><td>816</td><td>196.4</td></tr><tr><td>2026-06-04</td><td>271</td><td>179</td><td>61</td><td>2</td><td>1318</td><td>209.1</td></tr><tr><td>2026-06-03</td><td>241</td><td>159</td><td>41</td><td>1</td><td>1022</td><td>198.8</td></tr><tr><td>2026-06-02</td><td>211</td><td>141</td><td>30</td><td>7</td><td>749</td><td>190.4</td></tr><tr><td>2026-06-01</td><td>230</td><td>146</td><td>32</td><td>1</td><td>896</td><td>185.2</td></tr><tr><td>2026-05-31</td><td>106</td><td>67</td><td>9</td><td>1</td><td>362</td><td>170.3</td></tr><tr><td>2026-05-30</td><td>125</td><td>84</td><td>20</td><td>0</td><td>450</td><td>202.5</td></tr><tr><td>2026-05-29</td><td>280</td><td>156</td><td>32</td><td>4</td><td>984</td><td>280.0</td></tr></table></div>
 </div>
 
 <div class=tab id=tab-reports>
@@ -224,18 +228,19 @@ _注：UTC 日，完整结算值。数据源 Yori PostHog（只读）。每天�
 
 <div class=foot>口径：真实日活=uniq(person_id) email 非空且当天有动作；核心活跃=ai_message_sent uniq；新增=signup_started uniq；付费=billing_plan_purchased 次数；访客UV=全 distinct_id（含匿名，营销口径）。本页由 Gatlin 自动生成，随每日日报刷新。图表用 Chart.js（需联网）。</div>
 </div>
-<script>const D={"labels": ["05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17"], "rdau": [280, 125, 106, 230, 211, 241, 271, 191, 101, 76, 143, 231, 167, 148, 146, 92, 90, 170, 107, 109], "ma": [280.0, 202.5, 170.3, 185.2, 190.4, 198.8, 209.1, 196.4, 193.0, 188.7, 176.3, 179.1, 168.6, 151.0, 144.6, 143.3, 145.3, 149.1, 131.4, 123.1], "core": [156, 84, 67, 146, 141, 159, 179, 103, 52, 40, 80, 179, 106, 94, 92, 59, 38, 108, 75, 79], "sig": [32, 20, 9, 32, 30, 41, 61, 32, 15, 7, 12, 54, 12, 20, 17, 20, 19, 21, 8, 16], "paid": [4, 0, 1, 1, 7, 1, 2, 0, 0, 1, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0], "uv": [984, 450, 362, 896, 749, 1022, 1318, 816, 406, 292, 571, 1066, 558, 605, 576, 435, 392, 655, 442, 429], "chL": ["自然社交", "直接访问", "外部引荐", "自然搜索", "自然视频"], "chV": [62, 86, 3, 37, 7], "chanS": {"自然社交": [158, 103, 56, 152, 108, 249, 335, 171, 84, 56, 86, 144, 44, 144, 103, 121, 98, 103, 62, 64], "自然搜索": [36, 16, 17, 41, 45, 56, 119, 47, 20, 17, 50, 145, 42, 38, 33, 21, 27, 43, 37, 36], "自然视频": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 6, 7, 3], "直接访问": [218, 77, 83, 216, 168, 153, 204, 161, 62, 53, 128, 146, 115, 89, 103, 62, 50, 110, 86, 76], "外部引荐": [3, 1, 3, 6, 6, 1, 9, 6, 2, 0, 3, 5, 5, 1, 4, 2, 0, 4, 3, 1]}, "social": [158, 103, 56, 152, 108, 249, 335, 171, 84, 56, 86, 144, 44, 144, 103, 121, 98, 103, 62, 64], "totV": [415, 197, 159, 415, 327, 459, 667, 385, 168, 126, 267, 440, 206, 275, 243, 206, 175, 266, 195, 180]};Chart.defaults.color='#8a93a0';Chart.defaults.borderColor='#232b36';
+<script>const D={"labels": ["05-29", "05-30", "05-31", "06-01", "06-02", "06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17"], "rdau": [280, 125, 106, 230, 211, 241, 271, 191, 101, 76, 143, 231, 167, 148, 146, 92, 90, 170, 107, 110], "ma": [280.0, 202.5, 170.3, 185.2, 190.4, 198.8, 209.1, 196.4, 193.0, 188.7, 176.3, 179.1, 168.6, 151.0, 144.6, 143.3, 145.3, 149.1, 131.4, 123.3], "core": [156, 84, 67, 146, 141, 159, 179, 103, 52, 40, 80, 179, 106, 94, 92, 59, 38, 108, 75, 80], "sig": [32, 20, 9, 32, 30, 41, 61, 32, 15, 7, 12, 54, 12, 20, 17, 20, 19, 21, 8, 16], "paid": [4, 0, 1, 1, 7, 1, 2, 0, 0, 1, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0], "uv": [984, 450, 362, 896, 749, 1022, 1318, 816, 406, 292, 571, 1066, 558, 605, 576, 435, 392, 655, 442, 434], "chL": ["自然社交", "直接访问", "外部引荐", "自然搜索", "自然视频"], "chV": [62, 86, 3, 37, 7], "chanS": {"自然社交": [158, 103, 56, 152, 108, 249, 335, 171, 84, 56, 86, 144, 44, 144, 103, 121, 98, 103, 62, 64], "自然搜索": [36, 16, 17, 41, 45, 56, 119, 47, 20, 17, 50, 145, 42, 38, 33, 21, 27, 43, 37, 36], "自然视频": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 6, 7, 3], "直接访问": [218, 77, 83, 216, 168, 153, 204, 161, 62, 53, 128, 146, 115, 89, 103, 62, 50, 110, 86, 77], "外部引荐": [3, 1, 3, 6, 6, 1, 9, 6, 2, 0, 3, 5, 5, 1, 4, 2, 0, 4, 3, 1]}, "social": [158, 103, 56, 152, 108, 249, 335, 171, 84, 56, 86, 144, 44, 144, 103, 121, 98, 103, 62, 64], "totV": [415, 197, 159, 415, 327, 459, 667, 385, 168, 126, 267, 440, 206, 275, 243, 206, 175, 266, 195, 181]};Chart.defaults.color='rgba(43,33,26,.55)';Chart.defaults.borderColor='rgba(43,33,26,.09)';Chart.defaults.font.family="'DM Sans',sans-serif";
+const ACC='#f87500',INFO='#476c90',OK='#3f754f',WARN='#af5a21',MUT='#b3a796';
 const line=(label,data,color,extra={})=>({type:'line',data:{labels:D.labels,datasets:[{label,data,borderColor:color,backgroundColor:color,tension:.3,fill:false,pointRadius:2,...extra}]},options:{plugins:{legend:{display:false}}}});
-const CC={'自然社交':'#4f8cff','自然搜索':'#3ddc84','自然视频':'#ffb454','直接访问':'#a78bfa','外部引荐':'#6b7587'};
+const CC={'自然社交':ACC,'自然搜索':OK,'自然视频':WARN,'直接访问':INFO,'外部引荐':MUT};
 const cfg={
-cDau:()=>({type:'line',data:{labels:D.labels,datasets:[{label:'真实日活',data:D.rdau,borderColor:'#4f8cff',backgroundColor:'#4f8cff22',tension:.3,fill:true,pointRadius:2},{label:'7日均',data:D.ma,borderColor:'#ffb454',backgroundColor:'#ffb454',tension:.3,fill:false,pointRadius:0,borderDash:[5,4]}]},options:{plugins:{legend:{display:true}}}}),
-cCore:()=>line('核心活跃',D.core,'#3ddc84'),
-cSig:()=>line('新增注册',D.sig,'#a78bfa'),
-cPaid:()=>({type:'bar',data:{labels:D.labels,datasets:[{label:'付费',data:D.paid,backgroundColor:'#ff6b6b'}]},options:{plugins:{legend:{display:false}}}}),
-cUv:()=>line('访客UV',D.uv,'#5b6573'),
-cChan:()=>({type:'bar',data:{labels:D.chL,datasets:[{label:'访客',data:D.chV,backgroundColor:'#4f8cff'}]},options:{indexAxis:'y',plugins:{legend:{display:false}}}}),
+cDau:()=>({type:'line',data:{labels:D.labels,datasets:[{label:'真实日活',data:D.rdau,borderColor:ACC,backgroundColor:'rgba(248,117,0,.12)',tension:.3,fill:true,pointRadius:2},{label:'7日均',data:D.ma,borderColor:INFO,backgroundColor:INFO,tension:.3,fill:false,pointRadius:0,borderDash:[5,4]}]},options:{plugins:{legend:{display:true}}}}),
+cCore:()=>line('核心活跃',D.core,OK),
+cSig:()=>line('新增注册',D.sig,INFO),
+cPaid:()=>({type:'bar',data:{labels:D.labels,datasets:[{label:'付费',data:D.paid,backgroundColor:WARN}]},options:{plugins:{legend:{display:false}}}}),
+cUv:()=>line('访客UV',D.uv,MUT),
+cChan:()=>({type:'bar',data:{labels:D.chL,datasets:[{label:'访客',data:D.chV,backgroundColor:ACC}]},options:{indexAxis:'y',plugins:{legend:{display:false}}}}),
 cChanDaily:()=>({type:'line',data:{labels:D.labels,datasets:Object.keys(D.chanS).map(k=>({label:k,data:D.chanS[k],borderColor:CC[k],backgroundColor:CC[k],tension:.3,fill:false,pointRadius:1}))},options:{plugins:{legend:{display:true}}}}),
-cSocialDau:()=>({type:'line',data:{labels:D.labels,datasets:[{label:'社交访问',data:D.social,borderColor:'#4f8cff',backgroundColor:'#4f8cff22',tension:.3,fill:true,pointRadius:1,yAxisID:'y'},{label:'真实日活',data:D.rdau,borderColor:'#ff6b6b',backgroundColor:'#ff6b6b',tension:.3,fill:false,pointRadius:1,yAxisID:'y1'}]},options:{plugins:{legend:{display:true}},scales:{y:{position:'left',title:{display:true,text:'社交访问'}},y1:{position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'真实日活'}}}}})
+cSocialDau:()=>({type:'line',data:{labels:D.labels,datasets:[{label:'社交访问',data:D.social,borderColor:ACC,backgroundColor:'rgba(248,117,0,.12)',tension:.3,fill:true,pointRadius:1,yAxisID:'y'},{label:'真实日活',data:D.rdau,borderColor:INFO,backgroundColor:INFO,tension:.3,fill:false,pointRadius:1,yAxisID:'y1'}]},options:{plugins:{legend:{display:true}},scales:{y:{position:'left',title:{display:true,text:'社交访问'}},y1:{position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'真实日活'}}}}})
 };
 const made={};
 function build(p){p.querySelectorAll('canvas').forEach(c=>{if(!made[c.id]&&cfg[c.id]&&window.Chart){made[c.id]=new Chart(c,cfg[c.id]());}});}
